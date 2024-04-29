@@ -1,31 +1,49 @@
-# Django Datetime Validators
+# Django Date Validators
+
+A set of custom validators for validating date and datetime fields for Django.
+
+## Installation
+
+1. Install the package using pip:
+
+```bash
+pip install django-datetime-validators
+```
+
+2. Add `datetime_validators` to `INSTALLED_APPS`
+```python
+INSTALLED_APPS = [
+    ...,
+    "datetime_validators",
+]
+```
+## Usage
+
+### Date Is Future Validator
+
+Checks if a date is in the future.
+
+```python
+from datetime_validators.validators import date_time_is_future_validator
+
+# Using in Models
+due_date = models.DateTimeField(
+    validators=[date_time_is_future_validator]
+)
+
+```
+
+### Other Validators
+
+- **date_is_future_validator**: Checks if a date is in the future.
+- **date_is_present_or_future_validator**: Ensures that a date is either in the present or in the future.
+- **date_is_past_validator**: Validates that a date is in the past.
+- **date_is_present_or_past_validator**: Checks if a date is either in the present or in the past.
+- **date_time_is_future_validator**: Validates if a datetime is in the future.
+- **date_time_is_present_or_future_validator**: Checks if a datetime is either in the present or in the future.
+- **date_time_is_past_validator**: Ensures that a datetime is in the past.
+- **date_time_is_present_or_past_validator**: Validates that a datetime is either in the present or in the past.
 
 
-django_datetime_validators============
-django-polls
-============
-
-django-polls is a Django app to conduct web-based polls. For each
-question, visitors can choose between a fixed number of answers.
-
-Detailed documentation is in the "docs" directory.
-
-Quick start
------------
-
-1. Add "polls" to your INSTALLED_APPS setting like this::
-
-    INSTALLED_APPS = [
-        ...,
-        "django_polls",
-    ]
-
-2. Include the polls URLconf in your project urls.py like this::
-
-    path("polls/", include("django_polls.urls")),
-
-3. Run ``python manage.py migrate`` to create the models.
-
-4. Start the development server and visit the admin to create a poll.
-
-5. Visit the ``/polls/`` URL to participate in the poll.
+# Contributing
+Contributions are more than wellcome :)
